@@ -1,0 +1,37 @@
+$primary: #231F20
+$secondary: #929292
+$contrast: #ffffff
+$accent: #bd1515
+
+@mixin flex-row($status)
+  display: flex
+  align-items: center
+  @if $status == c
+    justify-content: center
+  @if $status == sb
+    justify-content: space-between
+  @if $status == se
+    justify-content: space-evenly
+  @if $status == sa
+    justify-content: space-around
+
+
+@mixin flex-column($status)
+  display: flex
+  flex-direction: column
+  @if $status == c
+    align-items: center
+  @if $status == fe
+    align-items: flex-end
+  @if $status == fs
+    align-items: flex-start
+
+
+@mixin testBlock
+  border: 1px solid red
+
+@mixin block($height, $width, $radius: 0)
+  width: $width
+  height: $height
+  @if $radius != 0
+    border-radius: $radius

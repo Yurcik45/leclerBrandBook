@@ -1,9 +1,29 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css'
+import MenuItems from "./Components/MenuItems/MenuItems";
+import axios from 'axios'
+
 const App = () => {
-    return (
+    const [productData, productDataHandler] = useState(null)
+    const getProductData = async () => {
+        try {
+            let base = await axios.get('base.json',{ crossDomain: true })
+            productDataHandler(base.data)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+    useEffect(() => {
+        getProductData()
+    },[])
+    useEffect(() => {
+        console.log(productData)
+    },[productData])
+        return (
         <div>
-            <h1>lol</h1>
+            <MenuItems
+                data={productData}
+            />
         </div>
     );
 };

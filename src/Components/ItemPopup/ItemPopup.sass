@@ -1,0 +1,75 @@
+@import "src/SassSetUp"
+
+.productPopup
+  top: 0
+  position: fixed
+  width: 100vw
+  height: 100vh
+  background: white
+.arrowLeft
+  cursor: pointer
+  position: fixed
+  top: 30px
+  left: 30px
+  svg
+    path
+      fill: #D6AC74
+.productItem
+  display: flex
+  flex-direction: column
+  align-items: center
+  cursor: pointer
+  width: 100%
+  text-align: center
+  background: white
+  box-sizing: border-box
+  h2
+    font-family: 'Old Standard TT', serif
+    font-size: 40px
+    color: #D6AC74
+  p
+    font-size: 30px
+  img
+    height: auto
+    width: 100%
+.productItemContainer
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: space-around
+  width: 800px
+  min-height: 100vh
+.imageContainer
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 600px
+  height: 600px
+@media screen and (max-width: 810px)
+  .productItemContainer
+    width: 550px
+  .imageContainer
+    width: 350px
+    height: 350px
+
+@media screen and (max-width: 550px)
+  .productItem
+    display: flex
+    flex-direction: column
+    align-items: center
+    width: 100%
+    height: auto
+
+    h2
+      height: 45px
+      font-size: 20px
+    p
+      font-size: 18px
+    img
+      height: auto
+      width: 100%
+  .productItemContainer
+    width: 320px
+  .imageContainer
+    width: 320px
+    height: 320px
