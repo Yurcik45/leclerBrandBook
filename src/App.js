@@ -7,7 +7,7 @@ const App = () => {
     const [productData, productDataHandler] = useState(null)
     const getProductData = async () => {
         try {
-            let base = await axios.get('base.json',{ crossDomain: true })
+            let base = await axios.get('base.json',{crossDomain: true })
             productDataHandler(base.data)
         } catch (e) {
             console.log(e)

@@ -9,6 +9,8 @@ const ItemPopup = props => {
         preventDefaultTouchmoveEvent: true,
         trackMouse: true
     });
+    // console.log(props.data)
+
     return (
             <div className={'productPopup'} {...handlers}>
                 <div
@@ -25,14 +27,13 @@ const ItemPopup = props => {
                 >
                     <div className="productItemContainer">
                         <div className="imageContainer">
-                            <img src={require(`../../IMG/${props.data.image}`)} alt=""/>
+                            <img src={require(`../../IMG/${props.dataItem.image}`)} alt=""/>
                         </div>
-                        <h2>{props.data.name}</h2>
-                        <p>{props.data.description}</p>
+                        <h2>{props.dataItem.name}</h2>
+                        <p>{props.data}</p>
                     </div>
                 </div>
             </div>
-
     );
 };
 

@@ -28,8 +28,8 @@ const MenuItems = props => {
             {
                 popup.status
                     ? <ItemPopup
-                    data={popup.init}
-                    popup={popup}
+                    data={props.data.testDescription}
+                    dataItem={popup.init}
                     setPopup={(value) => setPopup(value)}
                     />
                     : null
