@@ -6,7 +6,6 @@ const MenuItems = props => {
     const [popup, setPopup] = useState({status: false, init: null})
     return (
         <div className={'MenuItems'}>
-            <h1>MenuItems</h1>
             <div className="itemsContainer">
                 {
                     props.data ?

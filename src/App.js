@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react';
 import './App.css'
 import MenuItems from "./Components/MenuItems/MenuItems";
 import axios from 'axios'
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import HomePage from "./Components/HomePage/HomePage";
+import Header from "./Components/Header/Header";
 
 const App = () => {
     const [productData, productDataHandler] = useState(null)
@@ -21,9 +24,19 @@ const App = () => {
     },[productData])
         return (
         <div>
-            <MenuItems
-                data={productData}
-            />
+            <BrowserRouter>
+                <Header/>
+                <Switch>
+                    <Route exact path={'/'}>
+                        <HomePage/>
+                    </Route>
+                    <Route path={'/catalog'}>
+                        <MenuItems
+                            data={productData}
+                        />
+                    </Route>
+                </Switch>
+            </BrowserRouter>
         </div>
     );
 };
