@@ -65,7 +65,7 @@ const HomePage = () => {
         speed: 500,
         slidesToShow: 1,
         autoplay: true,
-        autoplaySpeed: 30000,
+        autoplaySpeed: 3000,
         slidesToScroll: 1
     };
     return (
