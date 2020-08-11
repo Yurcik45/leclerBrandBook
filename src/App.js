@@ -19,16 +19,15 @@ const App = () => {
     useEffect(() => {
         getProductData()
     },[])
-    useEffect(() => {
-        console.log(productData)
-    },[productData])
         return (
         <div>
             <BrowserRouter>
                 <Header/>
                 <Switch>
                     <Route exact path={'/'}>
-                        <HomePage/>
+                        <HomePage
+                            data={productData}
+                        />
                     </Route>
                     <Route path={'/catalog'}>
                         <MenuItems

@@ -1,34 +1,80 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Header.sass'
 import mainLogo from '../../IMG/LandIMG/main logo.png'
-import {NavLink} from "react-router-dom";
-import { HashLink as Link } from 'react-router-hash-link'
+import {HashLink as Link} from 'react-router-hash-link'
 
 
 const Header = () => {
+    const [changeStyle, changeStyleHandler] = useState(false)
+    const navItems = [
+        {
+            icon: <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 10C0 15.5129 4.48571 20 10 20C15.5129 20 20 15.5129 20 10C20 4.48714 15.5129 0 10 0C4.48571 0 0 4.48714 0 10ZM17.1429 10C17.1429 13.9386 13.9386 17.1429 10 17.1429C6.06143 17.1429 2.85714 13.9386 2.85714 10C2.85714 6.06143 6.06143 2.85714 10 2.85714C13.9386 2.85714 17.1429 6.06143 17.1429 10Z" fill="white"/>
+            </svg>,
+            link: '/#home',
+            text: 'ГОЛОВНА'
+        },
+        {
+            icon: <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.25 20V11.25H20V20H11.25ZM11.25 0H20V8.75H11.25V0ZM0 11.25H8.75V20H0V11.25ZM0 0H8.75V8.75H0V0Z" fill="white"/>
+            </svg>,
+            link: '/catalog',
+            text: 'КАТАЛОГ'
+        },
+        {
+            icon: <svg width="20" height="20" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M38.0625 12.5C40.1667 17.0209 39.6875 22.3542 37.375 26.6875C35.4167 30.2084 32.6042 33.1875 30.2083 36.4584C29.1667 37.9167 28.125 39.4792 27.3542 41.1667C27.0833 41.7292 26.8958 42.3125 26.6875 42.8959C26.4792 43.4792 26.2917 44.0625 26.1042 44.6459C25.9167 45.1875 25.6875 45.8334 25 45.8334C24.1875 45.8334 23.9583 44.9167 23.7917 44.2917C23.2917 42.7709 22.7917 41.3125 22.0208 39.9167C21.1458 38.2709 20.0417 36.75 18.9167 35.2709L38.0625 12.5ZM19 17.5417L12.125 25.7084C13.3958 28.3959 15.2917 30.6875 17.1042 32.9792C17.5417 33.5 17.9792 34.0417 18.3958 34.6042L27.0833 24.3125L27 24.3334C23.9583 25.375 20.5833 23.8334 19.375 20.8334C19.2083 20.4792 19.0833 20.0625 19 19.6459C18.8854 18.9561 18.8854 18.2522 19 17.5625V17.5417ZM13.7083 9.62502L13.6875 9.64585C10.3125 13.9167 9.72916 19.8542 11.75 24.875L20.0625 15L19.9583 14.8959L13.7083 9.62502ZM29.625 4.91669L22.9167 12.8542L23 12.8334C25.7917 11.875 28.9167 13.0834 30.3333 15.625C30.6458 16.2084 30.8958 16.8334 30.9792 17.4584C31.1042 18.25 31.1458 18.8125 31 19.5834V19.6042L37.6667 11.6875C35.924 8.51958 33.0649 6.11345 29.6458 4.93752L29.625 4.91669ZM20.6042 14.3542L28.75 4.66669L28.6667 4.64585C27.4583 4.33335 26.2292 4.16669 25 4.16669C20.8958 4.16669 17.0208 5.93752 14.2708 8.97919L14.2292 9.00002L20.6042 14.3542Z" fill="white"/>
+            </svg>,
+            link: '/#contacts',
+            text: 'КОНТАКТИ'
+        }
+    ]
     return (
-        <div className={'Header'}>
-            <div className={'mainLogo'}>
-                <a href='/#home'><img src={mainLogo} alt='Logo will be here'/></a>
+        <nav className={'Header'}>
+            <div className='mainLogo'>
+                <Link to='/#home'>
+                    <img src={mainLogo} alt='Lecler logo'/>
+                </Link>
             </div>
-            <ul className="mainLinks">
-                <li><a href='/#home'>ГОЛОВНА</a></li>
-                <li><NavLink activeClassName={'activeLink'} to='/catalog'>КАТАЛОГ</NavLink></li>
-                {/*<li><NavLink activeClassName={'activeLink'} to={'#footer'}>КАТАЛОГ</NavLink></li>*/}
-                {/*<li><Link to="/#footer">Your link text</Link></li>*/}
-                {/*<Link to="/pathLink#yourAnchorTag">Your link text</Link>*/}
-                <li><a href={'/#footer'}>КОНТАКТИ</a></li>
+            <ul className={changeStyle ? 'mainLinks mobileNavOpen' : 'mainLinks'}>
+                {
+                    navItems.map((navItem,key) => {
+                        return (
+                            <li key={key}>
+                                <Link to={navItem.link}>
+                                    {navItem.icon}
+                                    {navItem.text}
+                                </Link>
+                            </li>
+                        )
+                    })
+                }
+                <div
+                    className='navigationIconBurger'
+                    onClick={() => changeStyleHandler(!changeStyle)}
+                >
+                    {
+                        changeStyle
+                            ? <svg
+                                name='close X'
+                                width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M18.3 5.70998C18.2075 5.61728 18.0976 5.54373 17.9766 5.49355C17.8556 5.44337 17.7259 5.41754 17.595 5.41754C17.464 5.41754 17.3343 5.44337 17.2134 5.49355C17.0924 5.54373 16.9825 5.61728 16.89 5.70998L12 10.59L7.10998 5.69998C7.0174 5.6074 6.90749 5.53396 6.78652 5.48385C6.66556 5.43375 6.53591 5.40796 6.40498 5.40796C6.27405 5.40796 6.1444 5.43375 6.02344 5.48385C5.90247 5.53396 5.79256 5.6074 5.69998 5.69998C5.6074 5.79256 5.53396 5.90247 5.48385 6.02344C5.43375 6.1444 5.40796 6.27405 5.40796 6.40498C5.40796 6.53591 5.43375 6.66556 5.48385 6.78652C5.53396 6.90749 5.6074 7.0174 5.69998 7.10998L10.59 12L5.69998 16.89C5.6074 16.9826 5.53396 17.0925 5.48385 17.2134C5.43375 17.3344 5.40796 17.464 5.40796 17.595C5.40796 17.7259 5.43375 17.8556 5.48385 17.9765C5.53396 18.0975 5.6074 18.2074 5.69998 18.3C5.79256 18.3926 5.90247 18.466 6.02344 18.5161C6.1444 18.5662 6.27405 18.592 6.40498 18.592C6.53591 18.592 6.66556 18.5662 6.78652 18.5161C6.90749 18.466 7.0174 18.3926 7.10998 18.3L12 13.41L16.89 18.3C16.9826 18.3926 17.0925 18.466 17.2134 18.5161C17.3344 18.5662 17.464 18.592 17.595 18.592C17.7259 18.592 17.8556 18.5662 17.9765 18.5161C18.0975 18.466 18.2074 18.3926 18.3 18.3C18.3926 18.2074 18.466 18.0975 18.5161 17.9765C18.5662 17.8556 18.592 17.7259 18.592 17.595C18.592 17.464 18.5662 17.3344 18.5161 17.2134C18.466 17.0925 18.3926 16.9826 18.3 16.89L13.41 12L18.3 7.10998C18.68 6.72998 18.68 6.08998 18.3 5.70998V5.70998Z"
+                                    fill="white"/>
+                            </svg>
+                            : <svg
+                                name='burger'
+                                width="34" height="34" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M80 96H432V128H80V96Z" fill="black"/>
+                                <path d="M80 240H432V272H80V240Z" fill="black"/>
+                                <path d="M80 384H432V416H80V384Z" fill="black"/>
+                            </svg>
+                    }
+                </div>
             </ul>
-            <div className="navigationItems" onClick={style={ display: block}}>
-                <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M80 96H432V128H80V96Z" fill="black"/>
-                    <path d="M80 240H432V272H80V240Z" fill="black"/>
-                    <path d="M80 384H432V416H80V384Z" fill="black"/>
-                </svg>
 
-            </div>
-        </div>
-    );
-};
+        </nav>
+    )
+}
 
 export default Header;

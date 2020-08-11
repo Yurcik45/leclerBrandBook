@@ -12,6 +12,7 @@ const MenuItems = props => {
                     props.data.items.map((item, index) => {
                         return (
                             <div
+                                id={index}
                                 onClick={() => setPopup({status: true, init: item})}
                                 key={index}
                                 className="item"

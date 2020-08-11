@@ -1,93 +1,5 @@
 .HomePage
-  //padding-top: 60px
   width: 100%
-  height: 100vh
-
-.tellLinks
-  position: absolute
-  top: 80px
-  right: 20px
-  display: flex
-  flex-direction: column
-  align-items: flex-end
-  height: 70px
-  width: 100%
-  a
-    text-decoration: none
-    color: white
-    font-size: 30px
-    font-family: Roboto, Galvji
-    margin: 10px 0
-    width: 260px
-    height: 40px
-  .footerLinks
-    top: 20px
-    text-align: center
-    svg
-      margin-left: 20px
-
-.topSlide
-  width: 100%
-  height: 100vh
-  display: flex
-  justify-content: center
-  align-items: flex-start
-  position: relative
-  img
-    width: 100%
-    height: 100%
-  .mainText
-    display: block
-    position: absolute
-    width: 600px
-    left: 30px
-    top: 180px
-    z-index: 2
-    p
-      color: white
-      font-family: Roboto, sans-serif
-      font-style: normal
-      font-weight: bold
-      font-size: 70px
-      line-height: 120px
-
-.socialLinksContainer
-  height: 500px
-  width: 100%
-  position: absolute
-  top: 250px
-  right: 0
-  display: flex
-  align-items: center
-  justify-content: flex-end
-
-.socialLinks
-  display: flex
-  justify-content: space-between
-  align-items: flex-end
-  height: 500px
-  width: 500px
-  transform: rotate(-90deg)
-  div
-    //height: 100%
-    //display: flex
-    //align-items: flex-end
-    a
-      text-decoration: none
-      display: flex
-      align-items: center
-      justify-content: center
-      color: #ffffff
-      font-size: 20px
-      width: 160px
-      height: 80px
-      box-sizing: border-box
-      font-family: Roboto,sans-serif
-      svg
-        transform: rotate(90deg)
-        margin: 0 10px
-        width: 20px
-        height: 20px
 
 .bottomArrow
   position: absolute
@@ -95,7 +7,7 @@
   width: 100%
   display: flex
   justify-content: center
-  z-index: 2
+  z-index: 1
   a
     display: flex
     flex-direction: column
@@ -106,81 +18,255 @@
       margin: 10px auto
 
 
+// SLIDER//
+
+
+.topSlide
+  min-height: 100vh
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+
+.s0
+  background-image: url("../../IMG/LandIMG/main_background_1.png")
+.s1
+  background-image: url("../../IMG/LandIMG/main_background_2.png")
+.s2
+  background-image: url("../../IMG/LandIMG/main_background_3.png")
+.s3
+  background-image: url("../../IMG/LandIMG/bottomSlider_1.jpg")
+.s4
+  background-image: url("../../IMG/LandIMG/bottomSlider_2.jpg")
+.s5
+  background-image: url("../../IMG/LandIMG/bottomSlider_3.jpg")
+
+.slideContainerTwo
+  width: 100%
+  display: flex
+
+.contactContainer
+  width: 50%
+  height: 100vh
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  justify-content: space-between
+
+.linksContainerContact
+  display: flex
+  width: 100%
+  padding: 10px 0
+  justify-content: space-around
+  align-items: center
+
+.socialLinkContact
+  display: flex
+  flex-direction: row-reverse
+  align-items: center
+  text-decoration: none
+  color: white
+  svg
+    margin-right: 10px
+    width: 30px
+    height: 30px
+
+
+
+.slideText2
+  width: 50%
+  height: 100vh
+  background-color: rgba(35, 31, 32, 0.65)
+  display: flex
+  justify-content: center
+  align-items: center
+  h1
+    padding: 0 35px
+    color: #e2e2e2
+
+
+
+.mainText
+  width: 750px
+  font-family: Roboto, sans-serif
+  font-style: normal
+  font-weight: bold
+  font-size: 70px
+  padding: 80px 0 0 35px
+  color: #fff
+  line-height: 118px
+
+// SLIDER//
+
+
+// links //
+
+.socialLinksContainer
+  position: absolute
+  z-index: 1
+  top: calc(70% - 210px)
+  right: 0
+  display: flex
+  width: 50px
+  padding: 10px 0
+  justify-content: flex-end
+  overflow: hidden
+
+.socialLink
+  margin-right: 10px
+  display: flex
+  align-items: flex-end
+  justify-content: space-between
+  text-decoration: none
+  color: white
+  width: 130px
+  height: 130px
+  transform: rotate(-90deg)
+  line-height: 30px
+  svg
+    width: 30px
+    height: 30px
+    transform: rotate(90deg)
+  &:nth-child(2)
+    margin-top: 15px
+  &:last-child
+    margin-top: 15px
+
+
+// links //
+
+// ITEMS //
 .itemsContainer
-  padding-top: 60px
+  min-height: calc(100vh - 120px)
+  padding: 60px 30px
   display: flex
   align-items: center
-  justify-content: space-evenly
+  justify-content: space-between
   flex-wrap: wrap
-  width: 100%
+  width: calc(100% - 60px)
 
 .item
   cursor: pointer
   width: 230px
   height: 320px
-  margin: 10px
+  margin: 10px 5px
   padding: 10px
-  align-items: center
-  text-align: center
-  background: white
-  //border: 1px solid #dadada
   border: 1px solid #E0EBFF
   box-sizing: border-box
   text-decoration: none
   transition: .3s
+  h2
+    text-align: center
+    font-family: 'Old Standard TT', sans-serif
+    font-size: 22px
+    transition: .3s
+    color: #A4632D
+  img
+    height: 210px
+    width: 210px
   &:hover
     border: 1px solid #D6AC74
     h2
       color: #D6AC74
-  h2
-    font-family: 'Old Standard TT', serif
-    font-size: 22px
-    transition: .3s
-    color: #D6AC74
-  img
-    height: 210px
-    width: 210px
 
-@media screen and (max-width: 550px)
-  .item
-    width: calc(50% - 40px)
-    height: auto
-    margin: 5px
-    padding: 5px
-    h2
-      height: 45px
-      font-size: 14px
-    img
-      height: auto
-      width: 100%
 
-.footer
-  width: 100%
-  height: 320px
-  display: flex
-  //justify-content: center
-  //align-items: flex-start
-  position: relative
-  img
-    width: 100%
-    min-height: auto
-  .textFooter
-    display: block
+
+.homeProductItem
+  transition: .3s
+  .goToCatalogContainer
+    opacity: 0
     position: absolute
-    width: 450px
-    left: 30px
-    top: 50px
-    z-index: 2
-    p
+    z-index: 1
+    transition: .3s
+    width: 210px
+    height: 300px
+    display: flex
+    justify-content: center
+    align-items: center
+    h2
       color: white
-      font-family: Roboto, sans-serif
-      font-style: normal
-      font-weight: bold
-      text-align: center
-      font-size: 40px
-      line-height: 80px
-.logoFooter
+  &:hover
+    .goToCatalogContainer
+      opacity: 1
+      background-color: rgba(0, 0, 0, 0.32)
+
+// ITEMS //
+
+
+
+// tellLinksContainer //
+.tellLinksContainer,.tellLinksContainerContact
+  display: flex
+  flex-direction: column
+  justify-content: space-between
   position: absolute
-  top: 50px
-  left: 520px
-  width: 400px
+  top: 80px
+  right: 35px
+  height: 60px
+  a
+    text-decoration: none
+    color: white
+    font-size: 20px
+    font-family: Roboto, sans-serif
+
+
+// tellLinksContainer //
+.tellLinksContainerContact
+  position: static
+  margin: 70px 35px 0 0
+
+.logoContainerContact
+  width: 100%
+  height: 200px
+  display: flex
+  justify-content: center
+  align-items: center
+  img
+    width: 90%
+//@media screen and (max-width: 1000px)
+
+@media screen and (max-width: 920px)
+  .mainText
+    p
+      font-size: 50px
+      width: 500px
+
+@media screen and (max-width: 800px)
+  .slideContainerTwo
+    flex-direction: column-reverse
+  .slideText2
+    width: 100%
+    height: 50vh
+    padding: 0
+    h1
+      font-size: 20px
+      line-height: 30px
+  .contactContainer
+    width: 100%
+    height: 50vh
+  .mainText
+    padding-top: 140px
+    p
+      width: 300px
+      font-size: 28px
+      line-height: 50px
+
+@media screen and (max-width: 560px)
+  // ITEMS //
+
+  .itemsContainer
+    justify-content: center
+
+  // ITEMS //
+
+@media screen and (max-width: 450px)
+  .linksContainerContact
+    justify-content: space-around
+    flex-wrap: wrap
+    align-items: center
+  .slideText2
+    width: 100%
+    height: 50vh
+    padding: 0
+    h1
+      font-size: 16px
+      line-height: 25px
