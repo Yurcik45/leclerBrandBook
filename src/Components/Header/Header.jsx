@@ -19,7 +19,7 @@ const Header = () => {
                 {/*<Link to="/pathLink#yourAnchorTag">Your link text</Link>*/}
                 <li><a href={'/#footer'}>КОНТАКТИ</a></li>
             </ul>
-            <div className="navigationItems">
+            <div className="navigationItems" onClick={style={ display: block}}>
                 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M80 96H432V128H80V96Z" fill="black"/>
                     <path d="M80 240H432V272H80V240Z" fill="black"/>
