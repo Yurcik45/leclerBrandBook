@@ -5,7 +5,13 @@
   position: fixed
   width: 100vw
   height: 100vh
+  background: url("../../IMG/LandIMG/Popup Background.png")
+  background-size: 100vmax
+.popupContainer
+  width: 90%
+  height: 80%
   background: white
+  margin: 100px auto
 .arrowLeft
   cursor: pointer
   position: fixed
@@ -21,7 +27,7 @@
   cursor: pointer
   width: 100%
   text-align: center
-  background: white
+  background: transparent
   box-sizing: border-box
   h2
     font-family: 'Old Standard TT', serif
@@ -31,14 +37,19 @@
     font-size: 30px
   img
     height: auto
-    width: 100%
+    width: 90%
 .productItemContainer
   display: flex
-  flex-direction: column
-  align-items: center
-  justify-content: space-around
+  flex-direction: row
+  //align-items: center
+  //justify-content: space-around
   width: 800px
-  min-height: 100vh
+  height: 600px
+.productName
+  width: 400px
+  height: 300px
+  top: 10px
+  left: 5px
 .imageContainer
   display: flex
   justify-content: center

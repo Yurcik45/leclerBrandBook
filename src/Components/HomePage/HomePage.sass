@@ -1,11 +1,11 @@
 .HomePage
-  padding-top: 60px
+  //padding-top: 60px
   width: 100%
   height: 100vh
 
 .tellLinks
   position: absolute
-  top: 60px
+  top: 80px
   right: 20px
   display: flex
   flex-direction: column
@@ -15,25 +15,33 @@
   a
     text-decoration: none
     color: white
-    font-size: 20px
-    margin: 5px 0
+    font-size: 30px
+    font-family: Roboto, Galvji
+    margin: 10px 0
+    width: 260px
+    height: 40px
+  .footerLinks
+    top: 20px
+    text-align: center
+    svg
+      margin-left: 20px
 
 .topSlide
   width: 100%
-  height: calc(100vh - 60px)
+  height: 100vh
   display: flex
   justify-content: center
   align-items: flex-start
   position: relative
   img
     width: 100%
-    min-height: 100vh
+    height: 100%
   .mainText
     display: block
     position: absolute
     width: 600px
     left: 30px
-    top: 0
+    top: 180px
     z-index: 2
     p
       color: white
@@ -47,7 +55,7 @@
   height: 500px
   width: 100%
   position: absolute
-  top: 150px
+  top: 250px
   right: 0
   display: flex
   align-items: center
@@ -57,8 +65,8 @@
   display: flex
   justify-content: space-between
   align-items: flex-end
-  height: 480px
-  width: 480px
+  height: 500px
+  width: 500px
   transform: rotate(-90deg)
   div
     //height: 100%
@@ -81,7 +89,21 @@
         width: 20px
         height: 20px
 
-
+.bottomArrow
+  position: absolute
+  bottom: 0
+  width: 100%
+  display: flex
+  justify-content: center
+  z-index: 2
+  a
+    display: flex
+    flex-direction: column
+    text-decoration: none
+    font-family: Roboto, sans-serif
+    color: white
+    svg
+      margin: 10px auto
 
 
 .itemsContainer
@@ -131,3 +153,34 @@
     img
       height: auto
       width: 100%
+
+.footer
+  width: 100%
+  height: 320px
+  display: flex
+  //justify-content: center
+  //align-items: flex-start
+  position: relative
+  img
+    width: 100%
+    min-height: auto
+  .textFooter
+    display: block
+    position: absolute
+    width: 450px
+    left: 30px
+    top: 50px
+    z-index: 2
+    p
+      color: white
+      font-family: Roboto, sans-serif
+      font-style: normal
+      font-weight: bold
+      text-align: center
+      font-size: 40px
+      line-height: 80px
+.logoFooter
+  position: absolute
+  top: 50px
+  left: 520px
+  width: 400px
