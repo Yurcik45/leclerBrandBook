@@ -1,3 +1,4 @@
+@import "src/SassSetUp"
 .Header
   display: flex
   flex-direction: row
@@ -6,14 +7,13 @@
   padding: 0 30px
   width: calc(100% - 60px)
   height: 60px
-  background-color: rgba(255, 255, 255, 0.67)
+  background-color: $primary
   position: fixed
   z-index: 2
 .mainLogo
   padding: 0 5px
   img
     width: 90px
-
 .mainLinks
   display: flex
   align-items: center
@@ -25,12 +25,12 @@
       text-decoration: none
       display: block
       padding: 5px 10px
-      color: #A4632D
+      color: $accent
       font-family: Roboto, sans-serif
       font-size: 20px
-      svg
-        display: none
-
+      transition: .3s
+      &:hover
+        color: $primary-darker
 .navigationIconBurger
   display: none
   padding: 5px
@@ -38,12 +38,14 @@
   svg
     path
       transition: .3s
+      fill: $accent
   &:hover
     svg
       path
-        fill: #A4632D
-
+        fill: $primary-darker
 @media screen and (max-width: 850px)
+  .Header
+    z-index: 4
   .navigationIconBurger
     display: flex
 
@@ -55,19 +57,19 @@
       a
         display: flex
         align-items: center
-        svg
-          display: flex
 
   .mobileNavOpen
     flex-direction: column
-    height: 100vh
-    width: 320px
+    height: 150px
+    width: 100%
     position: fixed
+    z-index: 4
     right: 0
     top: 0
     padding-top: 60px
-    background-color: rgba(0, 0, 0, 0.89)
+    background-color: $primary-semiTransparent
     justify-content: flex-start
+    transition: .3s
     .navigationIconBurger
       position: fixed
       top: 7px
@@ -77,23 +79,18 @@
       font-family: Roboto, sans-serif
       width: 100%
       transition: .3s
-      border-bottom: 1px solid #A4632D
-      &:hover
-        background-color: #A4632D
-        a
-          color: #d9d9d9
-          svg
-            path
-              fill: #d9d9d9
+      border-bottom: 1px solid $accent
+      height: 50px
+      &:nth-child(3)
+        border: 0
       a
-        margin: 10px 0
         font-size: 25px
-        color: #d9d9d9
+        color: $semi-white
+        line-height: 40px
         width: 100%
         transition: .3s
         padding: 5px 10px
-        svg
-          margin-right: 10px
-          path
-            transition: .3s
-            fill: #A4632D
+      &:hover
+        background-color: $accent
+        a
+          color: $primary

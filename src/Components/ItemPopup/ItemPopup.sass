@@ -3,23 +3,42 @@
 .productPopup
   top: 0
   position: fixed
-  width: 100vw
+  width: 100%
   height: 100vh
-  background: url("../../IMG/LandIMG/Popup Background.png")
-  background-size: 100vmax
+  background-image: url("../../IMG/LandIMG/backPopup.png")
+  display: flex
+  justify-content: center
+  align-items: center
 .popupContainer
-  width: 90%
-  height: 80%
-  background: white
-  margin: 100px auto
-.arrowLeft
-  cursor: pointer
+  width: calc(100% - 70px)
+  height: calc(100% - 60px)
+  margin-top: 60px
+  display: flex
+  justify-content: center
+  align-items: center
+.closePopUp
   position: fixed
-  top: 30px
-  left: 30px
+  top: 90px
+  left: 35px
+  display: flex
+  justify-content: center
+  align-items: center
+  cursor: pointer
+  background-color: $contrast
+  border-radius: 50px
+  p
+    font-size: 25px
+    font-family: $fontMain
+    transition: .3s
   svg
     path
-      fill: #D6AC74
+      transition: .3s
+  &:hover
+    p
+      color: $accent
+    svg
+      path
+        fill: $accent
 .productItem
   display: flex
   flex-direction: column
@@ -30,57 +49,66 @@
   background: transparent
   box-sizing: border-box
   h2
-    font-family: 'Old Standard TT', serif
-    font-size: 40px
+    font-family: $fontMain
+    background-color: $contrast
+    border-radius: 50px
+    font-size: 50px
     color: #D6AC74
   p
-    font-size: 30px
+    font-size: 35px
+    font-family: $fontMain
   img
     height: auto
-    width: 90%
+    width: 100%
 .productItemContainer
   display: flex
-  flex-direction: row
-  //align-items: center
-  //justify-content: space-around
-  width: 800px
-  height: 600px
+  align-items: center
+  justify-content: center
+  width: 100%
+  height: 100%
 .productName
-  width: 400px
+  width: 50%
   height: 300px
-  top: 10px
-  left: 5px
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
 .imageContainer
   display: flex
   justify-content: center
   align-items: center
-  width: 600px
-  height: 600px
-@media screen and (max-width: 810px)
-  .productItemContainer
-    width: 550px
-  .imageContainer
-    width: 350px
-    height: 350px
+  width: 50%
 
-@media screen and (max-width: 550px)
-  .productItem
-    display: flex
-    flex-direction: column
-    align-items: center
+@media screen and (max-width: 950px)
+  .productItemContainer
+    flex-direction: column-reverse
+    justify-content: center
+  .productName
+    justify-content: flex-start
     width: 100%
-    height: auto
-
-    h2
-      height: 45px
-      font-size: 20px
-    p
-      font-size: 18px
-    img
-      height: auto
-      width: 100%
-  .productItemContainer
-    width: 320px
+    height: 50vh
   .imageContainer
-    width: 320px
-    height: 320px
+    align-items: flex-end
+    width: 100%
+    height: 50vh
+    img
+      height: 100%
+      width: auto
+
+@media screen and (max-width: 650px)
+  .imageContainer
+    img
+      height: 70%
+
+  .productName
+    h2
+      font-size: 50px
+    p
+      font-size: 35px
+
+@media screen and (max-width: 4500px)
+  .productName
+    h2
+      font-size: 30px
+    p
+      font-size: 20px

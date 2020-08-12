@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
-import './MenuItems.sass'
+import React from 'react';
 import ItemPopup from "../ItemPopup/ItemPopup";
 
 const MenuItems = props => {
-    const [popup, setPopup] = useState({status: false, init: null})
+
     return (
         <div className={'MenuItems'}>
             <div className="itemsContainer">
@@ -13,11 +12,12 @@ const MenuItems = props => {
                         return (
                             <div
                                 id={index}
-                                onClick={() => setPopup({status: true, init: item})}
+                                onClick={() => props.setPopup({status: true, init: item})}
                                 key={index}
                                 className="item"
+                                title={item.name}
                             >
-                                <img src={require(`../../IMG/${item.image}`)} alt=""/>
+                                <img src={require(`../../IMG/${item.image}`)} alt={item.name}/>
                                 <h2>{item.name}</h2>
                             </div>
                         )
@@ -26,11 +26,11 @@ const MenuItems = props => {
                 }
             </div>
             {
-                popup.status
+                props.popup.status
                     ? <ItemPopup
-                    data={props.data.testDescription}
-                    dataItem={popup.init}
-                    setPopup={(value) => setPopup(value)}
+                    dataItem={props.popup.init}
+                    allData={props.data.items}
+                    setPopup={(value) => props.setPopup(value)}
                     />
                     : null
             }

@@ -1,7 +1,12 @@
-$primary: #231F20
-$secondary: #929292
+$primary: #483C40
+$primary-semiTransparent: rgba(72, 60, 64, 0.84)
+$primary-darker: #A4632D
+$secondary: #3D6171
 $contrast: #ffffff
-$accent: #bd1515
+$accent: #D0AD7C
+$accent-alt: #BC6365
+$semi-white: rgb(227, 235, 253)
+$fontMain: 'Caveat', cursive
 
 @mixin flex-row($status)
   display: flex
@@ -15,7 +20,6 @@ $accent: #bd1515
   @if $status == sa
     justify-content: space-around
 
-
 @mixin flex-column($status)
   display: flex
   flex-direction: column
@@ -25,7 +29,6 @@ $accent: #bd1515
     align-items: flex-end
   @if $status == fs
     align-items: flex-start
-
 
 @mixin testBlock
   border: 1px solid red

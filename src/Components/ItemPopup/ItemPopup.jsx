@@ -5,32 +5,43 @@ import { useSwipeable } from 'react-swipeable'
 
 const ItemPopup = props => {
     const handlers = useSwipeable({
-        onSwipedDown: () => props.setPopup({status: false, init: null}),
+        onSwipedLeft: () => {
+            props.setPopup({ status: true, init: +props.dataItem.id + 1 === props.allData.length
+                    ? props.allData[0]
+                    : props.allData[+props.dataItem.id + 1] })
+        },
+        onSwipedRight: () => {
+            props.setPopup({status: true, init: +props.dataItem.id === 0
+                    ? props.allData[+props.allData.length - 1]
+                    : props.allData[+props.dataItem.id - 1] })
+        },
         preventDefaultTouchmoveEvent: true,
         trackMouse: true
     });
-    // console.log(props.data)
-
     return (
-            <div className={'productPopup'} {...handlers}>
-               <div className="popupContainer">
-                   <div
-                       className={'arrowLeft'}
-                       onClick={() => props.setPopup({status: false, init: null})}
+            <div className={ 'productPopup' }  { ...handlers } >
+               <div className="popupContainer"
+                    onClick={ () => props.setPopup({ status: false, init: null }) }
+               >
+                   <div className="closePopUp"
+                        title={ 'Повернутись в каталог' }
                    >
-                       <svg width="32" height="32" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <path fillRule="evenodd" clipRule="evenodd" d="M5.85404 4.64604C5.9006 4.69248 5.93755 4.74766 5.96275 4.80841C5.98796 4.86915 6.00093 4.93427 6.00093 5.00004C6.00093 5.06581 5.98796 5.13093 5.96275 5.19167C5.93755 5.25242 5.9006 5.30759 5.85404 5.35404L3.20704 8.00004L5.85404 10.646C5.90053 10.6925 5.9374 10.7477 5.96256 10.8085C5.98772 10.8692 6.00067 10.9343 6.00067 11C6.00067 11.0658 5.98772 11.1309 5.96256 11.1916C5.9374 11.2524 5.90053 11.3076 5.85404 11.354C5.80755 11.4005 5.75236 11.4374 5.69162 11.4626C5.63088 11.4877 5.56578 11.5007 5.50004 11.5007C5.4343 11.5007 5.3692 11.4877 5.30846 11.4626C5.24772 11.4374 5.19253 11.4005 5.14604 11.354L2.14604 8.35404C2.09948 8.30759 2.06253 8.25242 2.03733 8.19167C2.01212 8.13093 1.99915 8.06581 1.99915 8.00004C1.99915 7.93427 2.01212 7.86915 2.03733 7.80841C2.06253 7.74766 2.09948 7.69248 2.14604 7.64604L5.14604 4.64604C5.19248 4.59948 5.24766 4.56253 5.30841 4.53733C5.36915 4.51212 5.43427 4.49915 5.50004 4.49915C5.56581 4.49915 5.63093 4.51212 5.69167 4.53733C5.75242 4.56253 5.80759 4.59948 5.85404 4.64604V4.64604Z" fill="black"/>
-                           <path fillRule="evenodd" clipRule="evenodd" d="M2.5 8C2.5 7.86739 2.55268 7.74021 2.64645 7.64645C2.74021 7.55268 2.86739 7.5 3 7.5H13.5C13.6326 7.5 13.7598 7.55268 13.8536 7.64645C13.9473 7.74021 14 7.86739 14 8C14 8.13261 13.9473 8.25979 13.8536 8.35355C13.7598 8.44732 13.6326 8.5 13.5 8.5H3C2.86739 8.5 2.74021 8.44732 2.64645 8.35355C2.55268 8.25979 2.5 8.13261 2.5 8Z" fill="black"/>
+                       <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path fillRule="evenodd" clipRule="evenodd" d="M15.2262 8.27543C15.1391 8.18812 15.0356 8.11885 14.9217 8.07159C14.8078 8.02433 14.6857 8 14.5624 8C14.4391 8 14.317 8.02433 14.2031 8.07159C14.0892 8.11885 13.9857 8.18812 13.8987 8.27543L8.27366 13.9004C8.18636 13.9875 8.11709 14.091 8.06983 14.2049C8.02256 14.3188 7.99824 14.4409 7.99824 14.5642C7.99824 14.6875 8.02256 14.8096 8.06983 14.9235C8.11709 15.0374 8.18636 15.1408 8.27366 15.2279L13.8987 20.8529C14.0747 21.029 14.3135 21.1279 14.5624 21.1279C14.8114 21.1279 15.0501 21.029 15.2262 20.8529C15.4022 20.6769 15.5011 20.4381 15.5011 20.1892C15.5011 19.9402 15.4022 19.7015 15.2262 19.5254L10.263 14.5642L15.2262 9.60293C15.3135 9.51584 15.3827 9.41239 15.43 9.29849C15.4773 9.18459 15.5016 9.06249 15.5016 8.93918C15.5016 8.81586 15.4773 8.69376 15.43 8.57986C15.3827 8.46597 15.3135 8.36251 15.2262 8.27543Z" fill="black" />
+                           <path fillRule="evenodd" clipRule="evenodd" d="M23 14.5642C23 14.3156 22.9012 14.0771 22.7254 13.9013C22.5496 13.7255 22.3111 13.6267 22.0625 13.6267H9.875C9.62636 13.6267 9.3879 13.7255 9.21209 13.9013C9.03627 14.0771 8.9375 14.3156 8.9375 14.5642C8.9375 14.8128 9.03627 15.0513 9.21209 15.2271C9.3879 15.4029 9.62636 15.5017 9.875 15.5017H22.0625C22.3111 15.5017 22.5496 15.4029 22.7254 15.2271C22.9012 15.0513 23 14.8128 23 14.5642Z" fill="black" />
                        </svg>
+                       <p>
+                           Повернутись до каталогу
+                       </p>
                    </div>
                    <div className="productItem">
                        <div className="productItemContainer">
                            <div className="productName">
-                               <h2>{props.dataItem.name}</h2>
-                               <p>{props.data}</p>
+                               <h2>{ props.dataItem.name }</h2>
+                               <p>{ props.dataItem.description }</p>
                            </div>
                            <div className="imageContainer">
-                               <img src={require(`../../IMG/${props.dataItem.image}`)} alt=""/>
+                               <img src={require(`../../IMG/${ props.dataItem.image }`)} alt={ props.dataItem.name } />
                            </div>
                        </div>
                    </div>

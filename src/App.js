@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import './App.css'
 import MenuItems from "./Components/MenuItems/MenuItems";
 import axios from 'axios'
 import {BrowserRouter, Route, Switch} from "react-router-dom";
@@ -8,30 +7,35 @@ import Header from "./Components/Header/Header";
 
 const App = () => {
     const [productData, productDataHandler] = useState(null)
+    const [popup, setPopup] = useState({ status: false, init: null, id: 0 })
     const getProductData = async () => {
         try {
-            let base = await axios.get('base.json',{crossDomain: true })
+            let base = await axios.get('base.json',{ crossDomain: true })
             productDataHandler(base.data)
         } catch (e) {
             console.log(e)
         }
     }
     useEffect(() => {
-        getProductData()
+        getProductData().then(() => console.log())
     },[])
         return (
         <div>
             <BrowserRouter>
-                <Header/>
+                <Header
+                    setPopup={(value) => setPopup(value)}
+                />
                 <Switch>
-                    <Route exact path={'/'}>
+                    <Route exact path={ '/' }>
                         <HomePage
-                            data={productData}
+                            data={ productData }
                         />
                     </Route>
-                    <Route path={'/catalog'}>
+                    <Route path={ '/catalog' }>
                         <MenuItems
-                            data={productData}
+                            data={ productData }
+                            setPopup={ (value) => setPopup(value) }
+                            popup={ popup }
                         />
                     </Route>
                 </Switch>
