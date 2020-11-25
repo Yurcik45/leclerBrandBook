@@ -71,7 +71,7 @@ const HomePage = props => {
         <>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>Lecler - кондитерська фабрика. м.Івано-Франківськ.</title>
+                <title>Десерти Івано-Франківськ, Lecler, Кенді бар, Мусові десерти, Найсмачніші десерти,Весілля десерти</title>
                 <link rel="canonical" href="http://lecler.com.ua" />
             </Helmet>
             <div className='HomePage' id='toTop'>
